@@ -1,8 +1,9 @@
 # by billythegoat356
 
-from random import choice, randint, shuffle
+from random import choice
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 from os.path import isfile
+import secrets
 
 
 
@@ -73,18 +74,18 @@ def berserk(content: str, key: int) -> str:
 
     _content_ = Key.encrypt(content, key=key)
 
-    _lines_sep_, _spaces_sep_ = choice(list("~|-/=")), choice(list("¤§^*¨"))
+    _lines_sep_, _spaces_sep_ = secrets.choice(list("~|-/=")), choice(list("¤§^*¨"))
 
 
 
-    _hey_num_ = randint(69, 356)
+    _hey_num_ = secrets.SystemRandom().randint(69, 356)
     _hey_num_ = len(content)
 
     content = _lines_sep_.join(str(ord(x)+_hey_num_) if x != 'ζ' else _spaces_sep_ for x in _content_)
 
     _names_ = ["_eval", "_exec", "_byte", "_bytes", "_bit", "_bits", "_system", "_encode", "_decode", "_delete", "_exit", "_print", "_input"]
     _names_ = ["self." + name for name in _names_]
-    shuffle(_names_)
+    secrets.SystemRandom().shuffle(_names_)
 
     n_1 = _names_[0]
     n_2 = _names_[1]
@@ -102,7 +103,7 @@ def berserk(content: str, key: int) -> str:
 
     _ran_int_ = _hey_num_
     while _ran_int_ == _hey_num_:
-        _ran_int_ = str(randint(69, 356))
+        _ran_int_ = str(secrets.SystemRandom().randint(69, 356))
     
 
     _types_ = ("str","float","bool","int")
@@ -117,13 +118,13 @@ def berserk(content: str, key: int) -> str:
     _6_ = fr"""_n8_""",fr"""lambda _n12_:_n1_(_n12_)"""
     _all_ = [_1_, _2_, _3_, _4_, _5_, _6_]
    
-    shuffle(_all_)
+    secrets.SystemRandom().shuffle(_all_)
 
     _vars_content_ = ",".join(s[0] for s in _all_)
     _valors_content_ = ",".join(s[1] for s in _all_)
     _vars_ = _vars_content_ + "=" + _valors_content_
     _final_content_ = fr"""class Berserker():
- def __init__(self:object,_n1_:{choice(_types_)}=False,_n2_:{choice(_types_)}=0,*_n3_:{choice(_types_)},**_n4_:{choice(_types_)})->exec:
+ def __init__(self:object,_n1_:{secrets.choice(_types_)}=False,_n2_:{secrets.choice(_types_)}=0,*_n3_:{secrets.choice(_types_)},**_n4_:{secrets.choice(_types_)})->exec:
   {_vars_}
   return self.__decode__(_n4_[(_n7_[-1]+'_')[-1]+_n7_[18]+_n7_[15]+_n7_[0]+_n7_[17]+_n7_[10]+_n7_[11]+_n7_[4]])
  def __decode__(self,_execute: str)->exec:return(None,_n6_(_n8_(_execute)))[0]
